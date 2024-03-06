@@ -8,4 +8,10 @@ terraform {
     dynamodb_table = "terraform-lock"
   }
   # Additional configuration settings can be added here
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.39.1"
+    }
+  }
 }
