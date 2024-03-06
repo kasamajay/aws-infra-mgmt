@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   create-ec2:
     docker:
-    - image: amazon/aws-cli
+    - image: cimg/aws:2024.03
     steps:
     - run: 
         name: aws sts
