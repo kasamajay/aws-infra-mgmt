@@ -1,0 +1,14 @@
+version: 2.1
+
+jobs:
+  create-ec2:
+    docker:
+    - image: cimg/python:3.12
+    steps:
+    - run: echo "test"
+
+workflows:
+  main:
+    jobs:
+    - create-ec2
+  
