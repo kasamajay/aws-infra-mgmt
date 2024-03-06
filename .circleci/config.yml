@@ -5,6 +5,7 @@ jobs:
     docker:
     - image: cimg/aws:2024.03
     steps:
+    - checkout
     - run: 
         name: aws sts
         command: |
