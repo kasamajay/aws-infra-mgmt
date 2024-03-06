@@ -43,4 +43,6 @@ workflows:
     - apply:
         name: apply
         context: kasamajay-github
+        requires:
+        - hold
   
