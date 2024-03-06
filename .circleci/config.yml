@@ -27,9 +27,32 @@ jobs:
           ls -al
           terraform init
           terraform apply -auto-approve
+  destroy:
+    docker:
+    - image: cimg/aws:2024.03
+    steps:
+    - checkout
+    - run: 
+        name: terraform plan
+        command: |
+          aws sts get-caller-identity
+          pwd
+          ls -al
+          terraform init
+          terraform destroy -auto-approve
   
 
 workflows:
+  destroy:
+    jobs:
+    - hold:
+        name: hold
+        type: approval
+    - destroy:
+        name: destroy
+        context: kasamajay-github
+        requires:
+        - hold
   main:
     jobs:
     - plan:
