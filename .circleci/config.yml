@@ -9,6 +9,8 @@ jobs:
         name: aws sts
         command: |
           aws sts get-caller-identity
+          terraform init
+          terraform plan
 
 workflows:
   main:
