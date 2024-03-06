@@ -5,10 +5,14 @@ jobs:
     docker:
     - image: cimg/python:3.12
     steps:
-    - run: echo "test"
+    - run: 
+        name: aws sts
+        command: |
+          aws sts get-caller-identity
 
 workflows:
   main:
     jobs:
-    - create-ec2
+    - create-ec2:
+        context: kasamajay-github
   
