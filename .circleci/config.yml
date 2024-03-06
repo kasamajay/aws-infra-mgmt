@@ -9,6 +9,8 @@ jobs:
         name: aws sts
         command: |
           aws sts get-caller-identity
+          pwd
+          ls -al
           terraform init
           terraform plan
 
